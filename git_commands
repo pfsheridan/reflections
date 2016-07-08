@@ -7,6 +7,9 @@ clone
 log
 
 diff
+  Repository —> git diff <commit id1> <commit  id2>
+  Working Dir vs Staging —> git diff
+  Saging Area vs Repository —> git diff —staged
 
 checkout
 
@@ -20,6 +23,9 @@ status
 add - creates a staging area prior to a commit
 
 commit
+
+reset —hard {gets rid of any changes in working directory &/or staging area}
+— be very careful running this — you can not get these changes back 
 
 
 

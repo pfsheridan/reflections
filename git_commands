@@ -5,11 +5,17 @@ Lesson 1
 clone
 
 log
+  -- <commands>
+  git log --graph --oneline <branch x> <branch y>
+
 
 diff
   Repository —> git diff <commit id1> <commit  id2>
   Working Dir vs Staging —> git diff
   Saging Area vs Repository —> git diff —staged
+
+show 
+-- to see diff between the commit and its parent
 
 checkout
 
@@ -28,6 +34,17 @@ reset —hard {gets rid of any changes in working directory &/or staging area}
 — be very careful running this — you can not get these changes back 
 
 
+BRANCHES 
+-- master 
+git branch 
+
+delete a BRANCH
+- git branch -d <branch name>
+
+
+
+
+
 
 
 NOTES 
@@ -41,3 +58,35 @@ You can suppress this message by setting them explicitly:
 After doing this, you may fix the identity used for this commit with:
 
     git commit --amend --reset-author
+
+
+
+
+Caching your GitHub password in Git
+
+
+
+Install Git and the osxkeychain helper and tell Git to use it.
+
+Find out if Git and the osxkeychain helper are already installed:
+
+git credential-osxkeychain
+# Test for the cred helper
+Usage: git credential-osxkeychain <get|store|erase>
+If the osxkeychain helper isn't installed and you're running OS X version 10.9 or above, your computer will prompt you to download it as a part of the Xcode Command Line Tools:
+
+git credential-osxkeychain
+xcode-select: note: no developer tools were found at '/Applications/Xcode.app',
+requesting install. Choose an option in the dialog to download the command line developer tools.
+Alternatively, you can install Git and the osxkeychain helper by using Homebrew:
+
+$ brew install git
+Tell Git to use osxkeychain helper using the global credential.helper config:
+
+git config --global credential.helper osxkeychain
+# Set git to use the osxkeychain credential helper
+The next time you clone an HTTPS URL that requires a password, you'll be prompted for your username and password, and to grant access to the OSX keychain. After you've done this, the username and password are stored in your keychain and you won't be required to type them in to Git again.
+
+
+
+
